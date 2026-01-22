@@ -1,5 +1,5 @@
 import { Header } from "../../components/Header/Header";
-import { PopularMovies } from "./popularMovies/PopularMovies";
+import { PopularMovies } from "./PopularMovies/PopularMovies";
 
 export const HomePage = () => {
   return (
