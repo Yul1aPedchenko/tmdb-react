@@ -1,10 +1,8 @@
 import { useState, useEffect } from "react";
-
 import { useParams } from "react-router-dom";
-
 import { tmdbAPI } from "../../../api/tmdbAPI";
+import s from "./Reviews.module.scss";
 
-const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 export const Reviews = () => {
   const { movieId } = useParams();
   const [reviews, setReviews] = useState([]);
@@ -13,9 +11,7 @@ export const Reviews = () => {
     const getReviews = async () => {
       try {
         const r = await tmdbAPI.get(`/movie/${movieId}/reviews`);
-
         setReviews(r.data.results);
-        console.log(r.data.results);
       } catch (err) {
         console.error("Error getting reviews", err);
       }
@@ -23,20 +19,21 @@ export const Reviews = () => {
 
     getReviews();
   }, [movieId]);
+
   return (
-    <section>
-      <div>
-        <ul>
-          {reviews.map((review) => {
-            return (
-              <li key={review.id}>
-                <h3>{review.author}</h3>
-                <p>{review.content}</p>
-              </li>
-            );
-          })}
+    <section className={s.reviews}>
+      {reviews.length > 0 ? (
+        <ul className={s.reviews__list}>
+          {reviews.map((review) => (
+            <li key={review.id} className={s.reviews__item}>
+              <h3 className={s.reviews__cuthor}>{review.author}</h3>
+              <p className={s.reviews__content}>{review.content}</p>
+            </li>
+          ))}
         </ul>
-      </div>
+      ) : (
+        <p className={s.reviews__empty}>There is no reviews</p>
+      )}
     </section>
   );
 };

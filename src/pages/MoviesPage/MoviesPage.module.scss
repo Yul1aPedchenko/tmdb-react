@@ -1,0 +1,43 @@
+.movies {
+  padding: 24px;
+
+  &__form {
+    margin-bottom: 24px;
+  }
+
+  &__input {
+    width: 100%;
+    max-width: 400px;
+    padding: 10px 14px;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    font-size: 16px;
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 24px;
+  }
+
+  &__item {
+    text-decoration: none;
+    color: #fff;
+  }
+
+  &__img {
+    width: 100%;
+    border-radius: 12px;
+    margin-bottom: 8px;
+  }
+
+  &__title {
+    font-size: 15px;
+    text-align: center;
+  }
+  &__empty {
+    color: #fff;
+    text-align: center;
+  }
+}

@@ -1,0 +1,42 @@
+.header {
+  background: #111;
+  padding: 16px 24px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__link {
+    text-decoration: none;
+    color: #bbb;
+    font-size: 16px;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #fff;
+    }
+
+    &--active {
+      color: #fff;
+    }
+
+    &--active::after {
+      content: "";
+      position: absolute;
+      bottom: -6px;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+    }
+  }
+}

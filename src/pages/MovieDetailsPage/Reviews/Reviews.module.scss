@@ -1,0 +1,25 @@
+.reviews {
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__item {
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+  }
+
+  &__author {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  &__content {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.9;
+  }
+}

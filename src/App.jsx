@@ -6,6 +6,9 @@ import { MovieDetailsPage } from "./pages/MovieDetailsPage/MovieDetailsPage";
 import { Cast } from "./pages/MovieDetailsPage/Cast/Cast";
 import { Reviews } from "./pages/MovieDetailsPage/Reviews/Reviews";
 
+import './index.css';
+
+
 function App() {
   return (
     <>

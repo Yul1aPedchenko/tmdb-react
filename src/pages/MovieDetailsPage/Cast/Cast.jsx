@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
 import { tmdbAPI } from "../../../api/tmdbAPI";
+import s from "./Cast.module.scss";
 
 const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 export const Cast = () => {
@@ -24,14 +25,13 @@ export const Cast = () => {
     getCast();
   }, [movieId]);
   return (
-    <section>
-      <h2>Cast</h2>
-      <ul>
+    <section className={s.cast}>
+      <ul className={s.cast__list}>
         {cast.map((actor) => (
-          <li key={actor.cast_id}>
-            <img src={`${IMAGE_BASE}${actor.profile_path}`} alt={actor.name} />
-            <p>{actor.name}</p>
-            <p>as {actor.character}</p>
+          <li key={actor.cast_id} className={s.cast__item}>
+            <img className={s.cast__img} src={actor.profile_path ? `${IMAGE_BASE}${actor.profile_path}` : "https://i.pinimg.com/736x/ae/b4/b9/aeb4b95df3c0de89171efaf9ca97d33f.jpg"} alt={actor.name} />
+            <p className={s.cast__name}>{actor.name}</p>
+            <p className={s.cast__character}>as {actor.character}</p>
           </li>
         ))}
       </ul>
