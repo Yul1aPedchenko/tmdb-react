@@ -3,7 +3,7 @@ import { Header } from "../../components/Header/Header";
 import { useState, useEffect } from "react";
 
 import { Outlet } from "react-router-dom";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 
 import { tmdbAPI } from "../../api/tmdbAPI";
@@ -12,6 +12,8 @@ const IMAGE_BASE = "https://image.tmdb.org/t/p/w500";
 export const MovieDetailsPage = () => {
   const { movieId } = useParams();
   const [movieDetails, setMovieDetails] = useState({});
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const getMovieDetails = async () => {
@@ -30,10 +32,9 @@ export const MovieDetailsPage = () => {
 
   return (
     <>
-    <Header />
+      <Header />
       <div>
-        {/* Probably on;y for now (doesn't work properly) */}
-        <NavLink to='/'>Go back</NavLink> 
+        <button onClick={() => navigate(-1)} aria-label="Go back">Go back</button>
         <div>
           <img src={`${IMAGE_BASE}${movieDetails.poster_path}`} alt={movieDetails.title} />
           <h1>{movieDetails.title}</h1>
@@ -42,8 +43,8 @@ export const MovieDetailsPage = () => {
           <p> {movieDetails.release_date}</p>
         </div>
 
-        <NavLink to='cast'>Cast</NavLink>
-        <NavLink to='reviews'>Reviews</NavLink>
+        <NavLink to="cast">Cast</NavLink>
+        <NavLink to="reviews">Reviews</NavLink>
         <Outlet />
       </div>
     </>
