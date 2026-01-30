@@ -16,6 +16,7 @@ export const PopularMovies = () => {
       try {
         const r = await tmdbAPI.get("/movie/popular", {
           params: { page },
+          include_adult: false,
         });
 
         setPopularMovies(r.data.results);

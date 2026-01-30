@@ -20,6 +20,7 @@ export const MoviesPage = () => {
         const r = await tmdbAPI.get("/search/movie", {
           params: {
             query: "cats",
+            include_adult: false,
           },
         });
 
@@ -43,6 +44,7 @@ export const MoviesPage = () => {
       const r = await tmdbAPI.get("/search/movie", {
         params: {
           query: searchQuery,
+          include_adult: false,
         },
       });
 
